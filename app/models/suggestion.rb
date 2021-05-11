@@ -5,10 +5,5 @@ class Suggestion < ApplicationRecord
   # validates :body, format: { with: /\A[a-zA-Z]+\z/,
   #   message: "Only Letters Please" }
 
-  # after_initialize :set_defaults
-
-  # def set_defaults
-  #   self.upvotes = 0
-  #   self.downvotes = 0
-  # end
+  #
 end

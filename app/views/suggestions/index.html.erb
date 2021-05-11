@@ -14,11 +14,11 @@
         <div class="divider"></div>
         <div class="voting-container">
           <div class="upvote-container">
-            <%= link_to upvote_suggestion_path(suggestion), class: "far fa-thumbs-up", method: :put do %><% end %>
+            <%= link_to upvote_suggestion_path(suggestion), class: "fas fa-thumbs-up", method: :put do %><% end %>
             <%= suggestion.upvotes %>
           </div>
           <div class="downvote-container">
-            <%= link_to downvote_suggestion_path(suggestion), class: "far fa-thumbs-down", method: :put do %><% end %>
+            <%= link_to downvote_suggestion_path(suggestion), class: "fas fa-thumbs-down", method: :put do %><% end %>
             <%= suggestion.downvotes %>
           </div>
         </div>
