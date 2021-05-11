@@ -269,7 +269,7 @@ body {
   }
 
   .suggestions-grid-card .divider {
-    bottom: 4em;
+    bottom: 4.5em;
   }
 
   .form-container {
@@ -290,5 +290,9 @@ body {
     .form-image {
       display: none;
     }
+  }
+
+  .voting-container {
+    width: 100px;
   }
 }
