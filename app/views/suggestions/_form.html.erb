@@ -1,37 +1,44 @@
-<%= form_with(model: suggestion) do |form| %>
-  <% if suggestion.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(suggestion.errors.count, "error") %> prohibited this suggestion from being saved:</h2>
 
-      <ul>
-        <% suggestion.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+<div class="form-container">
+    <div class="form">
+      <h1>New Suggestion</h1>
+      <%= form_with(model: suggestion) do |form| %>
+        <% if suggestion.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(suggestion.errors.count, "error") %> prohibited this suggestion from being saved:</h2>
+
+            <ul>
+              <% suggestion.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
+
+        <div class="field">
+          <%= form.label :user %>
+          <%= form.text_field :user, placeholder: "Describe Project" %>
+        </div>
+
+        <div class="field">
+          <%= form.label :body %>
+          <%= form.text_area :body, placeholder: "Describe Project" %>
+        </div>
+
+        <div class="field">
+          <%= form.label :upvotes %>
+          <%= form.number_field :upvotes, value: 0 %>
+        </div>
+
+        <div class="field">
+          <%= form.label :downvotes %>
+          <%= form.number_field :downvotes, value: 0 %>
+        </div>
+
+        <div class="actions">
+          <%= form.submit %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :user %>
-    <%= form.text_field :user %>
-  </div>
-
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_field :body %>
-  </div>
-
-  <div class="field">
-    <%= form.label :upvotes %>
-    <%= form.number_field :upvotes %>
-  </div>
-
-  <div class="field">
-    <%= form.label :downvotes %>
-    <%= form.number_field :downvotes %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+    <img class="form-image" src="https://images.pexels.com/photos/2067178/pexels-photo-2067178.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+</div>

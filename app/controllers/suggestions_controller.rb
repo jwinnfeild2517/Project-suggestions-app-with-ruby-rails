@@ -3,7 +3,7 @@ class SuggestionsController < ApplicationController
 
   # GET /suggestions or /suggestions.json
   def index
-    @suggestions = Suggestion.all
+    @suggestions = Suggestion.all.order(created_at: :desc)
   end
 
   # GET /suggestions/1 or /suggestions/1.json
@@ -21,8 +21,7 @@ class SuggestionsController < ApplicationController
 
   def upvote
     @suggestion = Suggestion.find(params[:id])
-    @suggestion.upvotes += 1
-    @suggestion.save
+    @suggestion.update(upvotes: @suggestion.upvotes += 1)
     redirect_to suggestions_url
   end
 
@@ -38,7 +37,7 @@ class SuggestionsController < ApplicationController
 
     respond_to do |format|
       if @suggestion.save
-        format.html { redirect_to @suggestion, notice: "Suggestion was successfully created." }
+        format.html { redirect_to suggestions_url, notice: "Suggestion was successfully created." }
         format.json { render :show, status: :created, location: @suggestion }
       else
         format.html { render :new, status: :unprocessable_entity }

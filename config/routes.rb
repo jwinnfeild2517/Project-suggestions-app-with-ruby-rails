@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'suggestions#index'
   resources :suggestions do
     member do
       put 'upvote', to: 'suggestions#upvote'
