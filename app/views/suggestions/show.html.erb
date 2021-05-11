@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @suggestion.user %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @suggestion.body %>
+</p>
+
+<p>
+  <strong>Upvotes:</strong>
+  <%= @suggestion.upvotes %>
+</p>
+
+<p>
+  <strong>Downvotes:</strong>
+  <%= @suggestion.downvotes %>
+</p>
+
+<%= link_to 'Edit', edit_suggestion_path(@suggestion) %> |
+<%= link_to 'Back', suggestions_path %>

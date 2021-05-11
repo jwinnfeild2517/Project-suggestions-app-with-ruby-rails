@@ -1,0 +1,29 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <div class="heading" >
+    <h1>Suggest or vote on a Project</h1>
+    <%= link_to 'NEW SUGGESTION >', new_suggestion_path,class: "newSuggestion-button" %>
+  </div>
+  <div class="suggestions-grid">
+    <% @suggestions.each do |suggestion| %>
+      <div class="suggestions-grid-card">
+        <div class="info">
+          <p class="name"><strong>Submitted by: </strong><%= suggestion.user %></p>
+          <p class="description"><%= suggestion.body %></p>
+        </div>
+        <div class="divider"></div>
+        <div class="voting-container">
+          <div class="upvote-container">
+            <%= link_to upvote_suggestion_path(suggestion), class: "far fa-thumbs-up", method: :put do %><% end %>
+            <%= suggestion.upvotes %>
+          </div>
+          <div class="downvote-container">
+            <%= link_to downvote_suggestion_path(suggestion), class: "far fa-thumbs-down", method: :put do %><% end %>
+            <%= suggestion.downvotes %>
+          </div>
+        </div>
+      </div>
+      <!-- <%= link_to "Delete Book", suggestion, method: "delete" %> -->
+  <% end %>
+  </div>
+</div>
