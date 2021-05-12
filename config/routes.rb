@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'suggestions#index'
-  resources :suggestions do
+  resources :suggestions, only: [:index] do
     member do
       put 'upvote', to: 'suggestions#upvote'
       put 'downvote', to: 'suggestions#downvote'
