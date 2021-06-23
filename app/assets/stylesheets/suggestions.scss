@@ -198,10 +198,12 @@ body {
         height: 10em;
       }
 
-      label, input[type=number] {
-        display: none;
+      label {
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: 700;
+        font-size: 15px;
+        margin-bottom: 10px;
       }
-
     }
 
     .form-image {

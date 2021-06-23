@@ -16,24 +16,18 @@
         <% end %>
 
         <div class="field">
-          <%= form.label :user %>
-          <%= form.text_field :user, placeholder: "Describe Project" %>
+          <%= form.label :Name %>
+          <%= form.text_field :user, placeholder: "Enter Name", required: true  %>
         </div>
 
         <div class="field">
-          <%= form.label :body %>
-          <%= form.text_area :body, placeholder: "Describe Project" %>
+          <%= form.label :Description %>
+          <%= form.text_area :body, required: true %>
         </div>
 
-        <div class="field">
-          <%= form.label :upvotes %>
-          <%= form.number_field :upvotes, value: 0 %>
-        </div>
+        <%= form.hidden_field :upvotes, value: 0 %>
 
-        <div class="field">
-          <%= form.label :downvotes %>
-          <%= form.number_field :downvotes, value: 0 %>
-        </div>
+        <%= form.hidden_field :downvotes, value: 0 %>
 
         <div class="actions">
           <%= form.submit %>

@@ -20,7 +20,7 @@ class SuggestionsControllerTest < ActionDispatch::IntegrationTest
       post suggestions_url, params: { suggestion: { body: @suggestion.body, downvotes: @suggestion.downvotes, upvotes: @suggestion.upvotes, user: @suggestion.user } }
     end
 
-    assert_redirected_to suggestion_url(Suggestion.last)
+    assert_redirected_to suggestion_url(suggestions_url)
   end
 
   test "should show suggestion" do

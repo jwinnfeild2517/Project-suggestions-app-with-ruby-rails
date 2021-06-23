@@ -1,21 +1,17 @@
 class SuggestionsController < ApplicationController
   before_action :set_suggestion, only: %i[ show edit update destroy ]
 
-  # GET /suggestions or /suggestions.json
   def index
     @suggestions = Suggestion.all.order(created_at: :desc)
   end
 
-  # GET /suggestions/1 or /suggestions/1.json
   def show
   end
 
-  # GET /suggestions/new
   def new
     @suggestion = Suggestion.new
   end
 
-  # GET /suggestions/1/edit
   def edit
   end
 
@@ -31,7 +27,6 @@ class SuggestionsController < ApplicationController
     redirect_to suggestions_url
   end
 
-  # POST /suggestions or /suggestions.json
   def create
     @suggestion = Suggestion.new(suggestion_params)
 
@@ -46,7 +41,6 @@ class SuggestionsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /suggestions/1 or /suggestions/1.json
   def update
     respond_to do |format|
       if @suggestion.update(suggestion_params)
@@ -59,7 +53,6 @@ class SuggestionsController < ApplicationController
     end
   end
 
-  # DELETE /suggestions/1 or /suggestions/1.json
   def destroy
     @suggestion.destroy
     respond_to do |format|
@@ -69,12 +62,10 @@ class SuggestionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_suggestion
       @suggestion = Suggestion.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def suggestion_params
       params.require(:suggestion).permit(:user, :body, :upvotes, :downvotes)
     end
